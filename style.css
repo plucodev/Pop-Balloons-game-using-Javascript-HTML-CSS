@@ -1,0 +1,68 @@
+.container {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.balloon{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: 1px dashed cyan;
+    /* flex-grow: 1; */
+    border-radius: 50%
+}
+.balloon.popped{
+    visibility: hidden;
+}
+/* .balloon:after {
+    position: absolute;
+    background: inherit;
+    bottom: -5px;
+    left: 35px;
+    display: block;
+    content: '';
+    height: 10px;
+    width: 3px;
+    border-radius: 100%;
+    border: 1px solid blueviolet;
+} */
+.balloon:hover{ animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both; } 
+.balloon.popped { visibility: hidden; } 
+.balloon.popped::after { visibility: hidden; }
+
+
+/* ANIMATIONS */
+@keyframes float {
+        0% {
+                box-shadow: 05px 15px 0px rgba(0,0,0,0.6);
+                transform: translatey(0px);  
+        }
+        50% {
+                box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+                transform: translatey(-20px);
+        }
+        100% {
+                box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+                transform: translatey(0px);
+        }
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);  
+    }
+
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);  
+    }
+}
